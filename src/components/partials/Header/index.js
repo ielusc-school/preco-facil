@@ -1,10 +1,16 @@
 import React from 'react';
 import { HeaderArea } from './styled';
 import { Link } from 'react-router-dom';
-import { isLogged } from '../../../helpers/AuthHandler';
+import { isLogged, doLogout } from '../../../helpers/AuthHandler';
 
 const Header = () => {
   let logged = isLogged();
+
+  // criando meu metodo de logout
+  const handleLogout = () => {
+    doLogout();
+    window.location.href = '/';
+  }
 
   // simulando quando estiver autenticado
   // let logged = true; 
@@ -26,7 +32,7 @@ const Header = () => {
                   <Link to="/my-account">Minha Conta</Link>
                 </li>
                  <li>
-                   <Link to="/logout">Sair</Link>
+                  <button onClick={handleLogout}> Sair</button>
                 </li>
                 <li>
                   <Link to="/post" className="btn__post">Criar meu anúncio</Link>
@@ -42,7 +48,7 @@ const Header = () => {
                    <Link to="/signup">Cadastrar</Link>
                 </li>
                 <li>
-                  <Link to="/signin" className="btn__post">Criar meu anúncio</Link>
+                  <Link to="/post" className="btn__post">Criar meu anúncio</Link>
                 </li>
               </>
             }

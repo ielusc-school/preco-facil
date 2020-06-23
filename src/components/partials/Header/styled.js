@@ -45,9 +45,13 @@ nav {
     li {
       margin: 0 20px 0 20px;
 
-      a {
+      a, button {
         color: #000;
         font-size: 1em;
+        border: 0;
+        background: 0;
+        cursor: pointer;
+        outline: 0;
 
         &:hover {
           color: #999;
